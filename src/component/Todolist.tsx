@@ -74,6 +74,7 @@ export default Todolist;
 
 const StTodolistContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
 `;
 
