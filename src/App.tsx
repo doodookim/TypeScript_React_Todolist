@@ -38,15 +38,6 @@ function App() {
       content: content,
       isDone: false,
     };
-    setTodolist([...todolist, newTodo]);
-  };
-  const addTodolist = (): void => {
-    const newTodo = {
-      id: Date.now(),
-      title: title,
-      content: content,
-      isDone: false,
-    };
     setTitle(``);
     setContent('');
     setTodolist([...todolist, newTodo]);
@@ -58,23 +49,21 @@ function App() {
       <StHeader>MY TODO LIST</StHeader>
 
       <StMain>
-        <StFormContainer>
-          <StForm onSubmit={onSubmitList}>
-            <StInput
-              type='text'
-              placeholder={'제목을 입력해주세요.'}
-              value={title}
-              onChange={onChangeTitle}
-            />
-            <StInput
-              type='text'
-              placeholder={'내용을 입력해주세요.'}
-              value={content}
-              onChange={onChangeContent}
-            />
-            <StButton>등록하기</StButton>
-          </StForm>
-        </StFormContainer>
+        <StForm onSubmit={onSubmitList}>
+          <StInput
+            type='text'
+            placeholder={'제목을 입력해주세요.'}
+            value={title}
+            onChange={onChangeTitle}
+          />
+          <StInput
+            type='text'
+            placeholder={'내용을 입력해주세요.'}
+            value={content}
+            onChange={onChangeContent}
+          />
+          <StButton>등록하기</StButton>
+        </StForm>
 
         <Todolist
           todolist={todolist}
@@ -112,7 +101,7 @@ const StMain = styled.main`
   overflow-y: auto;
   padding: 1rem;
 `;
-const StFormContainer = styled.div``;
+
 const StForm = styled.form`
   width: 20rem;
   /* height: 10rem; */

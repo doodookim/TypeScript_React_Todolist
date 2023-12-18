@@ -36,36 +36,46 @@ const Todolist = ({
   return (
     <>
       <StTodo> {listIsDone ? '⭐️완료한 목록⭐️' : '🔥할 일 목록💻'}</StTodo>
-      {todolist
-        .filter((todo) => todo.isDone === listIsDone)
-        .map((todo) => {
-          return (
-            <StTodolist key={todo.id}>
-              <StH3tag>{todo.id}</StH3tag>
-              <p>{todo.title}</p>
-              <p>{todo.content}</p>
-              <StButton
-                onClick={() => {
-                  deleteButton(todo.id);
-                }}
-              >
-                삭제
-              </StButton>
-              <StButton
-                onClick={() => {
-                  onChangeHandler(todo.id);
-                }}
-              >
-                {listIsDone ? '완료 취소' : '완료'}
-              </StButton>
-            </StTodolist>
-          );
-        })}
+      <StTodolistContainer>
+        {todolist
+          .filter((todo) => todo.isDone === listIsDone)
+          .map((todo) => {
+            return (
+              <StTodolist key={todo.id}>
+                <StH3tag>{todo.id}</StH3tag>
+                <StTitle>{todo.title}</StTitle>
+                <StContent>{todo.content}</StContent>
+                <StButtonHandler>
+                  {' '}
+                  <StButton
+                    onClick={() => {
+                      deleteButton(todo.id);
+                    }}
+                  >
+                    삭제
+                  </StButton>
+                  <StButton
+                    onClick={() => {
+                      onChangeHandler(todo.id);
+                    }}
+                  >
+                    {listIsDone ? '완료 취소' : '완료'}
+                  </StButton>
+                </StButtonHandler>
+              </StTodolist>
+            );
+          })}
+      </StTodolistContainer>
     </>
   );
 };
 
 export default Todolist;
+
+const StTodolistContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`;
 
 const StTodo = styled.h1`
   font-size: 3rem;
@@ -101,8 +111,13 @@ const StH3tag = styled.div`
   font-weight: 700;
 `;
 
-const StPtag = styled.p`
-  /* font-size: 1.1rem; */
+const StTitle = styled.h1`
+  font-size: 2rem;
+  padding: 3rem;
+`;
+const StContent = styled.p`
+  font-size: 1.5;
+  padding: 1rem;
 `;
 
 const StButtonHandler = styled.div`
