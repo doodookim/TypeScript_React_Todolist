@@ -3,7 +3,7 @@ import { obj } from '../App';
 import { idText } from 'typescript';
 import styled from 'styled-components';
 type SetStateProps = React.Dispatch<React.SetStateAction<obj[]>>;
-// type SetStateProps = React.Dispatch<React.SetStateAction< state의 타입 넣어주기>>
+// type SetStateProps = React.Dispatch<React.SetStateAction< //! state의 타입 넣어주기>>
 const Todolist = ({
   todolist,
   setTodolist,
@@ -35,6 +35,7 @@ const Todolist = ({
 
   return (
     <>
+      {/* listIsDone 이용해서 상태 별로 리스트 담기 */}
       <StTodo> {listIsDone ? '⭐️완료한 목록⭐️' : '🔥할 일 목록💻'}</StTodo>
       <StTodolistContainer>
         {todolist

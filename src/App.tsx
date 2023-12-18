@@ -89,6 +89,8 @@ const StHeader = styled.header`
   padding: 4rem;
   font-size: 3rem;
   text-align: center;
+  user-select: none;
+  cursor: pointer;
 `;
 
 const StMain = styled.main`
